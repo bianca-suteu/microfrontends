@@ -3,9 +3,8 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { loadRemoteModule } from '@angular-architects/native-federation';
 
 export const routes: Routes = [{
-  path: '',
-  component: DashboardComponent,
-  pathMatch: 'full',
+  path: 'dashboard',
+  component: DashboardComponent
 },
 {
   path: 'mfe1',
