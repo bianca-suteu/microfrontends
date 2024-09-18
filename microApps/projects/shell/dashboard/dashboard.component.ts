@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
-import { SharedInfoService } from '../../shared/shared-info.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AuthService } from '@et/auth';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   private readonly destroy: DestroyRef = inject(DestroyRef);
 
   message = '';
-  constructor(private sharedService: SharedInfoService) {
+  constructor(private sharedService: AuthService) {
   }
 
   ngOnInit(): void {

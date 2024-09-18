@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { SharedInfoService } from '../../../shared/shared-info.service';
+import { AuthService } from '@et/auth';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ export class AppComponent {
   name = new FormControl('');
   message= '';
 
-  constructor(private sharedInfoService: SharedInfoService) {
+  constructor(private sharedInfoService: AuthService) {
     this.name.valueChanges.subscribe(val => {
       this.sharedInfoService.sendMessage(val || '');
     })

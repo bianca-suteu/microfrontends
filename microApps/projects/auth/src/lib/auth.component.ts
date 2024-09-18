@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-models',
+  selector: 'lib-auth',
   standalone: true,
   imports: [],
   template: `
     <p>
-      models works!
+      auth works!
     </p>
   `,
   styles: ``
 })
-export class ModelsComponent {
+export class AuthComponent {
 
 }
