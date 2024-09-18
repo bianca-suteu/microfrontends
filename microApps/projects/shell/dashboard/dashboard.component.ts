@@ -13,7 +13,8 @@ export class DashboardComponent implements OnInit {
   private readonly destroy: DestroyRef = inject(DestroyRef);
 
   message = '';
-  constructor(private sharedService: AuthService) {
+  sharedService = inject(AuthService);
+  constructor() {
   }
 
   ngOnInit(): void {

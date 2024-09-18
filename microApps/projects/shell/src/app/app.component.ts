@@ -13,16 +13,12 @@ import { AuthService } from '@et/auth';
 })
 export class AppComponent {
   name = new FormControl('');
-  message= '';
+  message = '';
+  // sharedService1 = inject(AuthService);
 
-  constructor(private sharedInfoService: AuthService) {
+  constructor(private sharedService: AuthService) {
     this.name.valueChanges.subscribe(val => {
-      this.sharedInfoService.sendMessage(val || '');
+      this.sharedService.sendMessage(val || '');
     })
-
-    this.sharedInfoService.message$.subscribe(message => {
-      this.message = message;
-      sharedInfoService.log("Shell:", this.message);
-    });
   }
 }

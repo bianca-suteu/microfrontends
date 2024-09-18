@@ -11,16 +11,18 @@ import { AuthService } from '@et/auth';
 })
 export class AppComponent {
   private readonly destroy: DestroyRef = inject(DestroyRef);
-  sharedService = inject(AuthService);
-  message= '';
- 
+  // sharedService1 = inject(AuthService);
+  message = '';
+
+  constructor(private sharedService: AuthService) {
+  }
 
   ngOnInit(): void {
     this.sharedService.message$.pipe(
       takeUntilDestroyed(this.destroy),
     ).subscribe(message => {
       this.message = message;
-     console.log(this.message)
+      console.log("MFE:", this.message)
     });
   }
 }

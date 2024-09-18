@@ -8,11 +8,13 @@ export class AuthService {
 
   private messageSource = new Subject<string>();
   message$ = this.messageSource.asObservable();
+  
+  constructor() {
+    console.log("created AuthService")
+  }
 
   sendMessage(message: string) {
     this.messageSource.next(message);
   }
-  log(app:string, message: string | null) {
-    console.log(`${app} ${message}`)
-  }
+
 }
