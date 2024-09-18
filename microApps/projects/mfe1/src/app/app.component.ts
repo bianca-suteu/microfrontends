@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SharedInfoService } from '../../../shared/shared-info.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AuthService } from '@et/auth';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,7 +11,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class AppComponent {
   private readonly destroy: DestroyRef = inject(DestroyRef);
-  sharedService = inject(SharedInfoService);
+  sharedService = inject(AuthService);
   message= '';
  
 
@@ -20,7 +20,7 @@ export class AppComponent {
       takeUntilDestroyed(this.destroy),
     ).subscribe(message => {
       this.message = message;
-      this.sharedService.log("MFE1:", this.message);
+     console.log(this.message)
     });
   }
 }
