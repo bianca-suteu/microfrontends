@@ -14,8 +14,6 @@ export class DashboardComponent implements OnInit {
 
   message = '';
   sharedService = inject(AuthService);
-  constructor() {
-  }
 
   ngOnInit(): void {
     this.sharedService.message$
@@ -23,7 +21,7 @@ export class DashboardComponent implements OnInit {
         takeUntilDestroyed(this.destroy),
       ).subscribe(message => {
         this.message = message;
-        this.sharedService.log("Dashboard", this.message);
+        console.log("Dashboard", this.message);
       })
   }
 }
