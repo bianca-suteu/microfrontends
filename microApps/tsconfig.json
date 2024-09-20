@@ -15,6 +15,9 @@
       ],
       "@et/auth": [
         "./dist/auth"
+      ],
+      "@et/events": [
+        "./dist/events"
       ]
     },
     "skipLibCheck": true,

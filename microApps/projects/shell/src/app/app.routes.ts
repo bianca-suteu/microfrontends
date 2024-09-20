@@ -7,6 +7,7 @@ export const routes: Routes = [{
   path: 'dashboard',
   component: DashboardComponent
 },
+{ path: '',   redirectTo: '/dashboard', pathMatch: 'full' }, 
 {
   path: 'mfe1',
   loadComponent: () =>

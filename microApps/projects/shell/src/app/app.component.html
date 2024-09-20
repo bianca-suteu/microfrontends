@@ -1,16 +1,17 @@
 <div class="container">
   <h1>Shell app container</h1>
+  <nav>
+    <ul>
+      <li><a routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
+      <li><a routerLink="/mfe1" routerLinkActive="active" ariaCurrentWhenActive="page">MFE1 - Shared service</a></li>
+      <li><a routerLink="/iframe" routerLinkActive="active" ariaCurrentWhenActive="page">iFrame integration</a></li>
+    </ul>
+  </nav>
+  <br>
   <label for="name">User name </label>
   <input id="name" type="text" [formControl]="name">
 
   <p>Hello {{name.value}}</p>
 
-  <nav>
-    <ul>
-      <li><a routerLink="dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard Component from shell</a></li>
-      <li><a routerLink="/mfe1" routerLinkActive="active" ariaCurrentWhenActive="page">MFE1 Component from remote</a></li>
-      <li><a routerLink="/iframe" routerLinkActive="active" ariaCurrentWhenActive="page">iFrame integration</a></li>
-    </ul>
-  </nav>
   <router-outlet />
 </div>
