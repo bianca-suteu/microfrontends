@@ -3,18 +3,19 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { EtIframeComponent } from '../../et-iframe/et-iframe.component';
 
-export const routes: Routes = [{
-  path: 'dashboard',
-  component: DashboardComponent
-},
-{ path: '',   redirectTo: '/dashboard', pathMatch: 'full' }, 
-{
-  path: 'mfe1',
-  loadComponent: () =>
-    loadRemoteModule('mfe1', './Component').then((m) => m.AppComponent),
-},
-{
-  path: 'iframe',
-  component: EtIframeComponent
-},
+export const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: 'mfe1',
+    loadComponent: () =>
+      loadRemoteModule('mfe1', './Component').then((m) => m.AppComponent),
+  },
+  {
+    path: 'iframe',
+    component: EtIframeComponent
+  },
 ];

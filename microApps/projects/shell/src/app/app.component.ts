@@ -21,29 +21,12 @@ export class AppComponent {
     this.name.valueChanges.subscribe(val => {
       this.sharedService.sendMessage(val || '');
       this.postMessage(val || '');
+      this.eventsService.sendEvent(new CustomEvent("mess", {
+        detail: {
+          name: val,
+        },
+      }))
     });
-  }
-
-  sendEvent() {
-    // // create custom events
-    const catFound = new CustomEvent("UI", {
-      detail: {
-        name: "cat",
-      },
-    });
-
-    // const element = window.document;//document.createElement("div"); // create a <div> element
-
-    // // add an appropriate event listener
-    // // element.addEventListener("animalfound", (e: any) => console.log(e.detail.name));
-
-    // // dispatch the events
-    // element.dispatchEvent(catFound);
-    const destination = document.getElementById('destination') as any;
-    if (destination?.contentWindow as Window) {
-      //destination.contentWindow.addEventListener("UI", (e: any) => console.log(e.detail.name));
-      destination.contentWindow.dispatchEvent(catFound);
-    }
   }
 
   postMessage(val: string) {
